@@ -39,7 +39,7 @@ export default async function Home() {
 			<Header />
 			<div className="py-3 md:px-36 mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 justify-center">
 				{hotels.map((hotel) => (
-					<HotelCard hotel={hotel} />
+					<HotelCard key= 'hotel' hotel={hotel} />
 				))}
 			</div>
 		</main>

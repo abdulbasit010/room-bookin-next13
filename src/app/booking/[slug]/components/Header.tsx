@@ -1,7 +1,7 @@
 export default function Header() {
 	return (
 		<div>
-			<h3 className="font-bold">You're almost done!</h3>
+			<h3 className="font-bold">You are almost done!</h3>
 			<div className="mt-5 flex">
 				<img
 					src="https://s3-eu-west-1.amazonaws.com/aws.roomph/Image/AccomodationImages/13466/Temp_13466_4.jpeg"
@@ -9,7 +9,7 @@ export default function Header() {
 					className="w-32 h-18 rounded"
 				/>
 				<div className="ml-4">
-					<h1 className="text-3xl font-bold">Pakistan's Best Room Service</h1>
+					<h1 className="text-3xl font-bold">Pakistan Best Room Service</h1>
 					<div className="flex mt-3">
 						<p className="mr-6">Tues, 22, 2023</p>
 						<p className="mr-6">7:30 PM</p>
