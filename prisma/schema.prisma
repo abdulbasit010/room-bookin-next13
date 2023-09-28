@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PRICING {
+  CHEAP
+  REGULAR
+  EXPENSIVE
+}
+
+model Hotel {
+  id            Int         @id       @default(autoincrement())
+  name          String
+  address       String
+  image         String
+  images        String[]
+  description   String
+  policy        String
+  slug          String      @unique
+  pricing       PRICING
+
+  rooms         Room[]
+  reviews       Review[]
+  bookings      Booking[]
+
+  location_id   Int
+  location      Location    @relation(fields: [location_id], references: [id])
+
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+}
+
+model Room {
+  id            Int         @id       @default(autoincrement())
+  name          String
+  price         String
+  description   String
+  slug          String      @unique
+
+  bookings      Booking[]
+  
+  hotel_id      Int
+  hotel         Hotel  @relation(fields: [hotel_id], references: [id])
+  
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+}
+
+model Location {
+  id            Int         @id       @default(autoincrement())
+  name          String
+
+  hotels        Hotel[]
+
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+}
+
+model User {
+  id            Int         @id       @default(autoincrement())
+  name          String
+  city          String
+  password      String
+  email         String
+  phone         String
+
+  reviews       Review[]
+  
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+}
+
+model Review {
+  id            Int         @id       @default(autoincrement())
+  name          String
+  text          String
+  rating        Float
+
+  hotel_id      Int
+  hotel         Hotel  @relation(fields: [hotel_id], references: [id])
+  user_id       Int
+  user          User        @relation(fields: [user_id], references: [id])
+
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+}
+
+model Booking {
+  id            Int         @id       @default(autoincrement())
+  name          String
+  email         String
+  check_in      DateTime
+  check_out     DateTime
+
+  room_id      Int
+  room         Room  @relation(fields: [room_id], references: [id])
+
+  hotel_id      Int
+  hotel         Hotel  @relation(fields: [hotel_id], references: [id])
+
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+}
