@@ -71,7 +71,7 @@ export default async function RoomBooking({
             </svg>
           </button>
         </div>
-      </div> */}
+      </div> */} 
     </>
   );
 }
