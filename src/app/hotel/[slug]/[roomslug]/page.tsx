@@ -50,7 +50,7 @@ export default async function RoomBooking({
   params: { roomslug: string };
 }) {
   const room = await fetchRoomlBySlug(params.roomslug);
-  return (
+  return ( 
     <>
       <RoomDetails room={room} />
 
