@@ -6,7 +6,7 @@ export default function Images({ images }: { images: string[] }) {
       </h1>
       <div className="grid grid-cols-3 gap-4">
         {images.map((image) => (
-          <img key='key' className="w-full h-44 mr-1 mb-1" src={image} alt="" />
+          <img className="w-full h-44 mr-1 mb-1" src={image} alt="" />
         ))}
       </div>
     </div>

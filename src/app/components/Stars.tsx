@@ -13,7 +13,7 @@ export default function Stars({
   reviews: Review[];
   rating?: number;
 }) {
-  const reviewRating = rating || calculateReviewRatingAverage(reviews); 
+  const reviewRating = rating || calculateReviewRatingAverage(reviews);
 
   const renderStars = () => {
     const stars = [];
@@ -29,7 +29,7 @@ export default function Stars({
     }
 
     return stars.map((star) => {
-      return <Image key = 'key' src={star} alt="" className="w-4 h-4 mr-1" />;
+      return <Image src={star} alt="" className="w-4 h-4 mr-1" />;
     });
   };
 

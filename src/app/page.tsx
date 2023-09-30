@@ -10,7 +10,7 @@ export interface HotelCardType {
 	location: Location;
 	pricing: PRICING;
 	reviews: Review[];
-	booking: Booking[]
+	bookings: Booking[]
 }
 
 const prisma = new PrismaClient();
@@ -39,7 +39,7 @@ export default async function Home() {
 			<Header />
 			<div className="py-3 md:px-36 mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 justify-center">
 				{hotels.map((hotel) => (
-					<HotelCard key= 'hotel' hotel={hotel} />
+					<HotelCard hotel={hotel} />
 				))}
 			</div>
 		</main>

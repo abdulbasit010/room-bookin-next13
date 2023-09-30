@@ -22,6 +22,7 @@ const fetchHotels = async (
 		location: true,
 		slug: true,
 		reviews: true,
+		bookings: true,
 	};
 
 	const where: any = {};

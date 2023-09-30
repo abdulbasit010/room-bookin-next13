@@ -1,10 +1,20 @@
 'use client'
 
 import { useState } from "react";
-import { Room } from "@prisma/client";
+import { Booking } from "@prisma/client";
 import BookingModal from "./BookingModal";
 
-const RoomDetails = ({room}: {room: Room}) => {
+interface RoomProps {
+  id: number;
+  name: string;
+  description: string;
+  price: string
+  slug: string;
+  hotel_id:number;
+  bookings: Booking[];
+}
+
+const RoomDetails = ({room}: {room: RoomProps}) => {
     const [openModal, setOpenModal] = useState<string | undefined>();
   return (
     <>
