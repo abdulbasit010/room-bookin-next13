@@ -13,6 +13,8 @@ interface RoomProps {
   slug: string;
   hotel_id:number;
   bookings: Booking[];
+  created_at: Date;
+  updated_at: Date;
 }
 
 const fetchRoomlBySlug = async (slug: string): Promise<RoomProps> => {
@@ -27,7 +29,9 @@ const fetchRoomlBySlug = async (slug: string): Promise<RoomProps> => {
       description: true,
       price: true,
       bookings: true,
-      hotel_id:true
+      hotel_id:true,
+      created_at:true,
+      updated_at:true
 
     },
   });

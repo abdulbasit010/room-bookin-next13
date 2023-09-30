@@ -12,6 +12,8 @@ interface RoomProps {
   slug: string;
   hotel_id:number;
   bookings: Booking[];
+  created_at: Date;
+  updated_at: Date;
 }
 
 const RoomDetails = ({room}: {room: RoomProps}) => {
